@@ -41,7 +41,7 @@ function getDocStats(fileContent) {
     uncommonWords=filterStopWords(wordArray);
 
 
-        // count every int the wordarray
+        // count every word in the wordarray
         for(let word in uncommonWords){
             let wordValue = uncommonWords[word];
             if (wordDictionary[wordValue] > 0){
@@ -58,10 +58,9 @@ function getDocStats(fileContent) {
         // write them to the page 
         ULTemplate(top5Words, document.getElementById("mostUsed"));
         ULTemplate(least5Words, document.getElementById("leastUsed"));
+
         docLength.innerText = "Document length: " + text.length;
         wordCount.innerText = "word Count: " + wordArray.length;
-       
-
     }
     function ULTemplate(items, element) {
         let rowTemplate = document.getElementById('template-ul-items');
@@ -106,6 +105,7 @@ function getStopwords() {
 
 }
 // highlight the words in the search
+
 function performMark() {
     // read the keyword
     var keyword = document.getElementById("keyword").value;
@@ -113,7 +113,7 @@ function performMark() {
     var newContent = "";
     // find all of the currently marked items 
     let spans = document.querySelectorAll('mark');
-    // <mark>Harry</mark>
+//<mark> harry </mark>
     //Harry
     for(var i = 0;i<spans.length;i++){
         spans[i].outerHTML = spans[i].innerHTML;
@@ -132,6 +132,4 @@ function performMark() {
         // scroll to first item it found
         element.scrollIntoView; 
     }
-
-
 }
